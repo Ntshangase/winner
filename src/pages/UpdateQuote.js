@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UpdateQoute() {
+function UpdateQuote() {
   return (
     <div>
         <h1>Repair shop </h1>
@@ -9,4 +9,4 @@ function UpdateQoute() {
   )
 }
 
-export default UpdateQoute
+export default UpdateQuote
