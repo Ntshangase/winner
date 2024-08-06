@@ -1,11 +1,15 @@
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Home from "./Home";
 
 
 function App() {
-  return (
-    <div>
-      <h3>Device Tracking System</h3>
-    </div>
-  );
+	return (
+		<Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+	);
 }
 
 export default App;
