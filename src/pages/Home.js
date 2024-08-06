@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 
 function Home() {
   return (
-    <div>
-        <h3>Landing page for whole application.</h3>
-    </div>
+    <Router>
+      <Routes>
+        
+      </Routes>
+    </Router>
   )
 }
 
