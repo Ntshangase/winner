@@ -6,8 +6,8 @@ export default function RepairNavbar() {
     <div>
         <nav>
 			<a href="/">Home</a>
-			<a href="/RepaiLanding">Landing</a>
-			<a href="/UpdateQuote">Timeline</a>
+			<a href="/RepairLanding">Landing</a>
+			<a href="/UpdateQuote">UpdateQuote</a>
 		</nav>
     </div>
   )
