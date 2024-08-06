@@ -14,7 +14,7 @@ function App() {
         <Route path="/Timeline" element={<Timeline />} />
         <Route path="/UpdateQuote" element={<UpdateQuote />} />
         <Route path="/RepairLanding" element={<RepairLanding />} />
-        <Route path="/CustomerLandng" element={<CustomerLanding />} />
+        <Route path="/CustomerLanding" element={<CustomerLanding />} />
       </Routes>
     </Router>
 	);
