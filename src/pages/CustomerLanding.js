@@ -5,9 +5,25 @@ function CustomerLanding() {
   return (
     <div>
       <Navbar />
-        <p>This would be the customer UI Landing page
-            with all customer pages being accessable from here..
-        </p>
+      <div>
+        <h1>Track My Repair</h1>
+        <p>This is your one stop shop for everything repair related</p>
+      </div>
+      <div>
+        <h2>Active Orders</h2>
+      </div>
+      <div>
+        <h2>Repair Quote</h2>
+        <form>
+          <label>
+            Device Name: 
+            <input type="text" />
+          </label>
+        </form>
+      </div>
+      <div>
+        <h2>Timeline</h2>
+      </div>
     </div>
   )
 }
