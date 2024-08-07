@@ -19,6 +19,15 @@ function CustomerLanding() {
             Device Name: 
             <input type="text" />
           </label>
+          <label>
+            Device Type: 
+            <select>
+              <option value="Devices">Devices</option>
+              <option value="Cars">Cars</option>
+              <option value="Machinery">Machinery</option>
+              <option value="Clothing">Clothing</option>
+            </select>
+          </label>
         </form>
       </div>
       <div>
