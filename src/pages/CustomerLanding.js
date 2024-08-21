@@ -32,6 +32,7 @@ function CustomerLanding() {
       </div>
       <div>
         <h2>Timeline</h2>
+        <p> the most important part they said </p>
       </div>
     </div>
   )
