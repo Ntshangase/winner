@@ -1,6 +1,6 @@
 // import React from 'react'
-// import Navbar from '../Components/Navbar'
 import React, { useState } from 'react';
+import Navbar from '../Components/Navbar';
 
 const CustomerLanding = () => {
   const [repairRequests, setRepairRequests] = useState([]);
@@ -25,6 +25,7 @@ const CustomerLanding = () => {
 
   return (
     <div style={{ padding: '20px' }}>
+      <Navbar />
       <h1>Track My Repair</h1>
 
       {/* Repair Request Form */}
