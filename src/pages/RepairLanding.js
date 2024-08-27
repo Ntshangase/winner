@@ -1,43 +1,74 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RepairNavbar from "../Components/RepairNavbar";
-
+import { database } from "../firebase"; 
 function RepairLanding() {
   // State to hold repair requests and quotes
-  const [repairRequests, setRepairRequests] = useState([
-    { id: 1, user: "John Doe", device: "Laptop", status: "In Progress", description: "Screen replacement", quote: "" },
-    { id: 2, user: "Jane Smith", device: "Phone", status: "Completed", description: "Battery replacement", quote: "" },
-  ]);
-
-  // State to hold the quote input
+  const [repairRequests, setRepairRequests] = useState([]);
   const [quoteData, setQuoteData] = useState({
     requestId: "",
     quote: "",
   });
 
+  // Fetch repair requests from Firebase on component mount
+  useEffect(() => {
+    const fetchRepairRequests = async () => {
+      try {
+        const snapshot = await database.ref("repairRequests").once("value");
+        const data = snapshot.val();
+        const requests = data ? Object.values(data) : [];
+        setRepairRequests(requests);
+      } catch (error) {
+        console.error("Error fetching repair requests:", error);
+      }
+    };
+
+    fetchRepairRequests();
+  }, []);
+
   const handleQuoteChange = (e) => {
     setQuoteData({ ...quoteData, [e.target.name]: e.target.value });
   };
 
-  const handleQuoteSubmit = (e) => {
+  const handleQuoteSubmit = async (e) => {
     e.preventDefault();
-    // Update the repair request with the quote
-    setRepairRequests((prevRequests) =>
-      prevRequests.map((request) =>
+    try {
+      // Update the repair request with the quote
+      const updatedRequests = repairRequests.map((request) =>
         request.id === parseInt(quoteData.requestId)
           ? { ...request, quote: quoteData.quote }
           : request
-      )
-    );
-    // Reset the form
-    setQuoteData({ requestId: "", quote: "" });
+      );
+
+      setRepairRequests(updatedRequests);
+
+      // Write the updated request back to Firebase
+      const requestId = quoteData.requestId;
+      await database.ref(`repairRequests/${requestId}`).update({
+        quote: quoteData.quote,
+      });
+
+      // Reset the form
+      setQuoteData({ requestId: "", quote: "" });
+    } catch (error) {
+      console.error("Error updating quote:", error);
+    }
   };
 
-  const handleStatusChange = (requestId, newStatus) => {
-    setRepairRequests((prevRequests) =>
-      prevRequests.map((request) =>
+  const handleStatusChange = async (requestId, newStatus) => {
+    try {
+      const updatedRequests = repairRequests.map((request) =>
         request.id === requestId ? { ...request, status: newStatus } : request
-      )
-    );
+      );
+
+      setRepairRequests(updatedRequests);
+
+      // Update the status in Firebase
+      await database.ref(`repairRequests/${requestId}`).update({
+        status: newStatus,
+      });
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
   };
 
   return (
@@ -45,7 +76,7 @@ function RepairLanding() {
       <RepairNavbar />
       <div style={{ padding: "20px" }}>
         <h2>Admin Dashboard</h2>
-        <h3>Repair Requests</h3>
+        <h3>Your Repair Requests</h3>
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
             <tr>

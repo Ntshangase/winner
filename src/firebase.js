@@ -1,28 +1,19 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-//import { getAnalytics } from "firebase/analytics";
-import { getDatabase } from 'firebase/database';
+import { getDatabase, ref, set, update, get, child } from "firebase/database";
 
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyAwFE6VHrYPcgkX7ruXPIonSLrA6IU9fDM",
-    authDomain: "winner-4da95.firebaseapp.com",
-    databaseURL: "https://winner-4da95-default-rtdb.firebaseio.com",
-    projectId: "winner-4da95",
-    storageBucket: "winner-4da95.appspot.com",
-    messagingSenderId: "537322194131",
-    appId: "1:537322194131:web:8a3087b8666714a65f8026",
-    measurementId: "G-D24FR52F2F"
-  };
+  apiKey: "AIzaSyD-kXwddro8I6mu03qUyK9gh8VwbM4PlLc",
+  authDomain: "cloud-8f1de.firebaseapp.com",
+  databaseURL: "https://cloud-8f1de-default-rtdb.firebaseio.com/",
+  projectId: "cloud-8f1de",
+  storageBucket: "cloud-8f1de.appspot.com",
+  messagingSenderId: "499005967227",
+  appId: "1:499005967227:web:fa9e9fa830b7ff89900bde",
+  measurementId: "G-1JGMND185R"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-const database =  getDatabase(app);
+const database = getDatabase(app);
 
-export {database};
+export {database, ref, set, update, get, child}

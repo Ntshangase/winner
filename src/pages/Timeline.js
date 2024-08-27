@@ -1,14 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
+import { database } from '../firebase'; 
 
 function Timeline() {
-  // Sample data for customer orders
-  const [orders] = useState([
-    { id: 1, device: 'Laptop', stage: 'Pending', description: 'Screen replacement' },
-    { id: 2, device: 'Phone', stage: 'InProgress', description: 'Battery replacement' },
-    { id: 3, device: 'Tablet', stage: 'readyForCollection', description: 'Charging port repair' },
-    { id: 4, device: 'Desktop', stage: 'complete', description: 'Hard drive replacement' },
-  ]);
+  // State to hold orders
+  const [orders, setOrders] = useState([]);
+
+  // Fetch orders from Firebase on component mount
+  console.log(database.ref);
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const snapshot = await database.ref('orders').once('value');
+      const data = snapshot.val();
+      const ordersList = data ? Object.values(data) : [];
+      setOrders(ordersList);
+    };
+
+    fetchOrders();
+  }, []);
+
+  const handleStatusChange = async (orderId, newStatus) => {
+    // Update the status in local state
+    const updatedOrders = orders.map((order) =>
+      order.id === orderId ? { ...order, stage: newStatus } : order
+    );
+    setOrders(updatedOrders);
+
+    // Update the status in Firebase
+    await database.ref(`orders/${orderId}`).update({
+      stage: newStatus,
+    });
+  };
 
   return (
     <div>
@@ -28,25 +50,16 @@ function Timeline() {
               <tr key={order.id}>
                 <td style={{ border: '1px solid #ccc', padding: '10px' }}>{order.device}</td>
                 <td style={{ border: '1px solid #ccc', padding: '10px' }}>
-                  <span
-                    style={{
-                      padding: '5px 10px',
-                      borderRadius: '5px',
-                      backgroundColor:
-                        order.stage === 'Pending'
-                          ? '#ffc107'
-                          : order.stage === 'AssignedTechnician'
-                          ? '#007bff'
-                          : order.stage === 'InProgress'
-                          ? '#28a745'
-                          : order.stage === 'readyForCollection'
-                          ? '#6c757d'
-                          : '#dc3545',
-                      color: '#fff',
-                    }}
+                  <select
+                    value={order.stage}
+                    onChange={(e) => handleStatusChange(order.id, e.target.value)}
                   >
-                    {order.stage}
-                  </span>
+                    <option value="Pending">Pending</option>
+                    <option value="AssignedTechnician">Assigned Technician</option>
+                    <option value="InProgress">In Progress</option>
+                    <option value="readyForCollection">Ready for Collection</option>
+                    <option value="complete">Complete</option>
+                  </select>
                 </td>
                 <td style={{ border: '1px solid #ccc', padding: '10px' }}>{order.description}</td>
               </tr>
