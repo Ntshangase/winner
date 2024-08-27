@@ -13,7 +13,7 @@ export default function RepairNavbar() {
         <Link to="/RepairLanding">Landing Page</Link>
       </li>
       <li className="nav-item">
-        <Link to="/UpdateQuote">Timeline</Link>
+        <Link to="/UpdateQuote">Update Order</Link>
       </li>
     </ul>
   </nav>
