@@ -13,6 +13,9 @@ function RepairLanding() {
     quote: "",
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRequest, setSelectedRequest] = useState(null);
+
   const handleQuoteChange = (e) => {
     setQuoteData({ ...quoteData, [e.target.name]: e.target.value });
   };
@@ -27,6 +30,13 @@ function RepairLanding() {
       )
     );
     setQuoteData({ requestId: "", quote: "" });
+    setIsModalOpen(false); // Close the modal after submitting the quote
+  };
+
+  const handleEditClick = (request) => {
+    setSelectedRequest(request);
+    setQuoteData({ requestId: request.id, quote: request.quote });
+    setIsModalOpen(true);
   };
 
   const handleStatusChange = (requestId, newStatus) => {
@@ -34,6 +44,56 @@ function RepairLanding() {
       prevRequests.map((request) =>
         request.id === requestId ? { ...request, status: newStatus } : request
       )
+    );
+  };
+
+  const EditStatusModal = () => {
+    const [newStatus, setNewStatus] = useState(selectedRequest?.status || '');
+
+    const handleSave = () => {
+      handleStatusChange(selectedRequest.id, newStatus);
+      setIsModalOpen(false); // Close the modal after saving
+    };
+
+    if (!isModalOpen) return null;
+
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <h2>Edit Repair Status</h2>
+          <label htmlFor="status">Select Status:</label>
+          <select
+            id="status"
+            value={newStatus}
+            onChange={(e) => setNewStatus(e.target.value)}
+          >
+            <option value="Order Received">Order Received</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Ready for Collection">Ready for Collection</option>
+          </select>
+
+          <h3>Send Repair Quote</h3>
+          <form className="send-quote-form" onSubmit={handleQuoteSubmit}>
+            <label htmlFor="quote">Enter Quote:</label>
+            <input
+              type="number"
+              name="quote"
+              value={quoteData.quote}
+              onChange={handleQuoteChange}
+              placeholder="Enter repair cost"
+              required
+              min="0"
+              step="0.01"
+            />
+
+            <div className="modal-buttons">
+              <button type="submit">Save Changes</button>
+              <button type="button" onClick={() => setIsModalOpen(false)}>Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
     );
   };
 
@@ -47,9 +107,9 @@ function RepairLanding() {
           <tr>
             <th>User</th>
             <th>Device</th>
-            <th>Status</th>
             <th>Description</th>
             <th>Quote</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -57,55 +117,18 @@ function RepairLanding() {
             <tr key={request.id}>
               <td>{request.user}</td>
               <td>{request.device}</td>
-              <td>
-                <select
-                  value={request.status}
-                  onChange={(e) => handleStatusChange(request.id, e.target.value)}
-                >
-                  <option value="Order Received">Order Received</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Completed">Completed</option>
-                  <option value="Ready for Collection">Ready for Collection</option>
-                </select>
-              </td>
               <td>{request.description}</td>
               <td>{request.quote || "No quote yet"}</td>
+              <td>
+                <button onClick={() => handleEditClick(request)}>Edit</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <h3>Send Repair Quote</h3>
-      <form className="send-quote-form" onSubmit={handleQuoteSubmit}>
-        <label htmlFor="requestId">Select Repair Request ID:</label>
-        <select
-          name="requestId"
-          value={quoteData.requestId}
-          onChange={handleQuoteChange}
-          required
-        >
-          <option value="">--Select Request--</option>
-          {repairRequests.map((request) => (
-            <option key={request.id} value={request.id}>
-              {request.user} - {request.device}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="quote">Enter Quote:</label>
-        <input
-          type="number"
-          name="quote"
-          value={quoteData.quote}
-          onChange={handleQuoteChange}
-          placeholder="Enter repair cost"
-          required
-          min="0"
-          step="0.01"
-        />
-
-        <button type="submit">Send Quote</button>
-      </form>
+      {/* Render Edit Status Modal */}
+      <EditStatusModal />
     </div>
   );
 }
