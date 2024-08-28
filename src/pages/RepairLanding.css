@@ -1,0 +1,64 @@
+.repair-landing-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    margin-top: 60px; /* Space for the fixed navbar */
+  }
+  
+  .repair-landing-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #343a40;
+  }
+  
+  .repair-requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Space below the table */
+  }
+  
+  .repair-requests-table th,
+  .repair-requests-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .repair-requests-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .send-quote-form {
+    margin-top: 20px;
+  }
+  
+  .send-quote-form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .send-quote-form input,
+  .send-quote-form select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+  
+  .send-quote-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .send-quote-form button:hover {
+    background-color: #0056b3;
+  }
