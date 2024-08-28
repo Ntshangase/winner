@@ -5,6 +5,7 @@ import UpdateQuote from "./UpdateQuote";
 import RepairLanding from "./RepairLanding";
 import CustomerLanding from "./CustomerLanding";
 import Login from "./Login";
+import Register from "./Register";
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         <Route path="/UpdateQuote" element={<UpdateQuote />} />
         <Route path="/RepairLanding" element={<RepairLanding />} />
         <Route path="/CustomerLanding" element={<CustomerLanding />} />
-        <Route path="/Logig" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
 	);

@@ -18,7 +18,7 @@ function Home() {
 						Customer Landing
 					</button>
 				</Link>
-				<Link to="/RepairLanding">
+				<Link to="/Login">
 					<button style={{ padding: "10px 20px", fontSize: "16px" }}>
 						RepairLanding
 					</button>
