@@ -17,9 +17,7 @@ const CustomerLanding = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add the new repair request to the list
     setRepairRequests([...repairRequests, { ...formData, status: 'Pending' }]);
-    // Reset form fields
     setFormData({ name: '', email: '', device: '', description: '' });
   };
 
