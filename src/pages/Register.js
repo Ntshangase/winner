@@ -23,13 +23,10 @@ function Register() {
       setError("Passwords do not match.");
       return;
     }
-
-    // Here you would typically handle registration logic
     console.log("Registering user:", { name, email, password });
 
-    // Reset error and navigate to the desired page (e.g., home page)
     setError("");
-    navigate("/RepairLanding"); // Change this to the desired page after registration
+    navigate("/Login"); 
   };
 
   return (
