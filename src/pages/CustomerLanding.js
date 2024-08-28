@@ -1,6 +1,6 @@
-// import React from 'react'
 import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
+import './CustomerLanding.css'; // Import the CSS file for styling
 
 const CustomerLanding = () => {
   const [repairRequests, setRepairRequests] = useState([]);
@@ -24,20 +24,18 @@ const CustomerLanding = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="customer-landing-container">
       <Navbar />
-      <h1>Track My Repair</h1>
 
       {/* Repair Request Form */}
-      <h2>Submit a Repair Request</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="repair-request-form" onSubmit={handleSubmit}>
+        <h2 className="form-title">Submit a Repair Request</h2>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          style={{ margin: '10px 0', padding: '10px', width: '100%' }}
           required
         />
         <input
@@ -46,7 +44,6 @@ const CustomerLanding = () => {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          style={{ margin: '10px 0', padding: '10px', width: '100%' }}
           required
         />
         <input
@@ -55,7 +52,6 @@ const CustomerLanding = () => {
           placeholder="Device Type"
           value={formData.device}
           onChange={handleChange}
-          style={{ margin: '10px 0', padding: '10px', width: '100%' }}
           required
         />
         <textarea
@@ -63,20 +59,19 @@ const CustomerLanding = () => {
           placeholder="Describe the issue"
           value={formData.description}
           onChange={handleChange}
-          style={{ margin: '10px 0', padding: '10px', width: '100%' }}
           required
         />
-        <button type="submit" style={{ padding: '10px 20px', fontSize: '16px' }}>
+        <button type="submit" className="submit-button">
           Submit Request
         </button>
       </form>
 
       {/* Repair Status Section */}
-      <h2>Your Repair Requests</h2>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
+      <h2 className="status-title">Your Repair Requests</h2>
+      <ul className="repair-requests-list">
         {repairRequests.length > 0 ? (
           repairRequests.map((request, index) => (
-            <li key={index} style={{ padding: '10px', border: '1px solid #ccc', margin: '10px 0' }}>
+            <li key={index} className="repair-request-item">
               <strong>Device:</strong> {request.device} <br />
               <strong>Status:</strong> {request.status} <br />
               <strong>Description:</strong> {request.description}
