@@ -29,7 +29,7 @@ function Register() {
 
     // Reset error and navigate to the desired page (e.g., home page)
     setError("");
-    navigate("/"); // Change this to the desired page after registration
+    navigate("/RepairLanding"); // Change this to the desired page after registration
   };
 
   return (
@@ -65,7 +65,7 @@ function Register() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit">Register</button>
+        <button type="submit" >Register</button>
       </form>
       <p className="login-link">
         Already have an account? <a href="/login">Login here</a>

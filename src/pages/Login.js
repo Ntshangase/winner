@@ -13,7 +13,7 @@ function Login() {
     // Check if both fields are filled
     if (email && password) {
       // Navigate to the next page (e.g., home page)
-      navigate("/CustomerLanding"); // Change this to the desired page
+      navigate("/RepairLanding"); // Change this to the desired page
     }
   };
 
