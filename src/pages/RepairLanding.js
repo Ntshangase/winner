@@ -99,13 +99,15 @@ function RepairLanding() {
 
           <label htmlFor="quote">Enter Quote:</label>
           <input
-            type="text"
+            type="number"
             name="quote"
             value={quoteData.quote}
             onChange={handleQuoteChange}
             placeholder="Enter repair cost"
             required
             style={{ margin: "10px 0", padding: "10px", width: "100%" }}
+            min="0"
+            step="0.01"
           />
 
           <button type="submit" style={{ padding: "10px 20px", fontSize: "16px" }}>
