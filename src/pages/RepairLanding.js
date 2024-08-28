@@ -41,7 +41,7 @@ function RepairLanding() {
     <div className="repair-landing-container">
       <RepairNavbar />
       <h2 className="repair-landing-title">Repair Shop Dashboard</h2>
-      <h3>Repair Requests</h3>
+      <h3>Active Repairs</h3>
       <table className="repair-requests-table">
         <thead>
           <tr>
