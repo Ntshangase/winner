@@ -129,7 +129,7 @@ function RepairLanding() {
             <p>Category: {request.category}</p>
             <p>Description: {request.description}</p>
             <p>Quote: {request.quote || "No quote yet"}</p>
-            <p>Status: {request.status}</p>
+            <p className={`status ${request.status.replace(/\s+/g, '')}`}>{request.status}</p>
             <button className="edit-button" onClick={() => handleEditClick(request)}>Edit</button>
           </li>
         ))}
