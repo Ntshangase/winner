@@ -1,32 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Home.css'; // Import the CSS file for styling
 
 function Home() {
 	return (
-		<div>
-			<div style={{ textAlign: "center", padding: "20px" }}>
-				<h1>Welcome to Track My Repair</h1>
-				<p>Submit your repair requests easily and track their status.</p>
+		<div className="home-container">
+			<h1 className="home-title">Welcome to Track My Repair</h1>
+			<p className="home-description">Submit your repair requests easily and track their status.</p>
+			<div className="button-container">
 				<Link to="/CustomerLanding">
-					<button
-						style={{
-							padding: "10px 20px",
-							fontSize: "16px",
-							marginRight: "5px",
-						}}
-					>
-						Customer Landing
-					</button>
+					<button className="home-button">Customer Landing</button>
 				</Link>
 				<Link to="/Login">
-					<button style={{ padding: "10px 20px", fontSize: "16px" }}>
-						RepairLanding
-					</button>
+					<button className="home-button">Repair Landing</button>
 				</Link>
-				<footer style={{ marginTop: "20px" }}>
-					<p>&copy; 2024 Track My Repair</p>
-				</footer>
 			</div>
+			<footer className="home-footer">
+				<p>&copy; 2024 Track My Repair</p>
+			</footer>
 		</div>
 	);
 }
