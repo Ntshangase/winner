@@ -88,7 +88,7 @@ function RepairLanding() {
             />
 
             <div className="modal-buttons">
-              <button type="submit">Save Changes</button>
+              <button type="submit">Save</button>
               <button type="button" onClick={() => setIsModalOpen(false)}>Cancel</button>
             </div>
           </form>
