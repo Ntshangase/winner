@@ -9,16 +9,24 @@ const CustomerLanding = () => {
     email: '',
     device: '',
     description: '',
+    category: '', // New category state
+    image: null, // New image state
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, image: e.target.files[0] }); // Handle file upload
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRepairRequests([...repairRequests, { ...formData, status: 'Pending' }]);
-    setFormData({ name: '', email: '', device: '', description: '' });
+    const newRequest = { ...formData, status: 'Pending' };
+    setRepairRequests([...repairRequests, newRequest]);
+    setFormData({ name: '', email: '', device: '', description: '', category: '', image: null }); // Reset form
   };
 
   return (
@@ -44,6 +52,21 @@ const CustomerLanding = () => {
           onChange={handleChange}
           required
         />
+        
+        {/* Category Dropdown */}
+        <select
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select Category</option>
+          <option value="Device Repair">Device Repair</option>
+          <option value="Car Repair">Car Repair</option>
+          <option value="Machinery Repair">Machinery Repair</option>
+          <option value="Clothing Repair">Clothing Repair</option>
+        </select>
+
         <input
           type="text"
           name="device"
@@ -59,6 +82,15 @@ const CustomerLanding = () => {
           onChange={handleChange}
           required
         />
+        
+        {/* Image Upload */}
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          onChange={handleFileChange}
+        />
+
         <button type="submit" className="submit-button">
           Submit Request
         </button>
@@ -70,9 +102,15 @@ const CustomerLanding = () => {
         {repairRequests.length > 0 ? (
           repairRequests.map((request, index) => (
             <li key={index} className="repair-request-item">
+              <strong>Category:</strong> {request.category} <br />
               <strong>Device:</strong> {request.device} <br />
               <strong>Status:</strong> {request.status} <br />
-              <strong>Description:</strong> {request.description}
+              <strong>Description:</strong> {request.description} <br />
+              {request.image && (
+  <div className="image-container">
+    <img src={URL.createObjectURL(request.image)} alt="Uploaded" />
+  </div>
+)}
             </li>
           ))
         ) : (

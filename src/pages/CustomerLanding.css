@@ -4,80 +4,100 @@
   min-height: 100vh;
   margin-top: 60px; 
 }
-  
-  .customer-landing-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #343a40;
-  }
-  
-  .form-title {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    color: #343a40;
-    text-align: center; /* Center the form title */
-  }
-  
-  .repair-request-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%; /* Full width */
-    max-width: 800px; /* Increased max width for larger screens */
-    margin: 20px auto; /* Center the form on larger screens with top margin */
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    padding-top: 40px; /* Increased top padding to separate from navbar */
-  }
-  
-  .repair-request-form input,
-  .repair-request-form textarea {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%; /* Full width for inputs and textarea */
-    box-sizing: border-box; /* Include padding and border in width */
-  }
-  
-  .repair-request-form textarea {
-    resize: vertical; /* Allow vertical resizing */
-  }
-  
-  .submit-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%; /* Full width for the button */
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .status-title {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    color: #343a40;
-  }
-  
-  .repair-requests-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-  }
-  
-  .repair-request-item {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px 0;
-    background-color: #ffffff;
-  }
+
+.customer-landing-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #343a40;
+}
+
+.form-title {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #343a40;
+  text-align: center; /* Center the form title */
+}
+
+.repair-request-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Full width */
+  max-width: 800px; /* Increased max width for larger screens */
+  margin: 20px auto; /* Center the form on larger screens with top margin */
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-top: 40px; /* Increased top padding to separate from navbar */
+}
+
+.repair-request-form input,
+.repair-request-form textarea,
+.repair-request-form select { /* Added select for dropdown */
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Full width for inputs, textarea, and select */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.repair-request-form textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.repair-request-form input[type="file"] { /* Styles for file input */
+  margin: 10px 0;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* Full width for the button */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.status-title {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.repair-requests-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.repair-request-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  background-color: #ffffff;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+}
+
+.repair-request-item img { /* Styles for uploaded image */
+  margin-top: 5px;
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: add rounded corners to the image */
+}
+
+.repair-request-item .image-container { /* Container for image */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the image */
+  margin-top: 10px; /* Space above the image */
+}
