@@ -1,103 +1,112 @@
 .repair-landing-container {
-    padding: 20px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    margin-top: 60px; /* Space for the fixed navbar */
-  }
-  
-  .repair-landing-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #343a40;
-  }
-  
-  .repair-requests-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px; /* Space below the table */
-  }
-  
-  .repair-requests-table th,
-  .repair-requests-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  .repair-requests-table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .send-quote-form {
-    margin-top: 20px;
-  }
-  
-  .send-quote-form label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  .send-quote-form input,
-  .send-quote-form select {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in width */
-  }
-  
-  .send-quote-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .send-quote-form button:hover {
-    background-color: #0056b3;
-  }
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  margin-top: 60px; /* Space for the fixed navbar */
+}
 
-  /* modal thingz*/
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px; /* Adjust width as needed */
-    text-align: center;
-  }
-  
-  .modal-buttons {
-    margin-top: 20px;
-  }
-  
-  .modal-buttons button {
-    margin: 0 5px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .modal-buttons button:hover {
-    background-color: #007bff;
-    color: white;
-  }
+.repair-landing-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #343a40;
+  font-weight: bold; /* Make the title text thicker */
+}
+
+.repair-requests-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+.repair-request-item {
+  background-color: #ffffff; /* Background color for each item */
+  border: 1px solid #ccc; /* Border for each item */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Padding inside each item */
+  margin: 10px 0; /* Space between items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Elevated shadow for depth */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.repair-request-item:hover {
+  transform: translateY(-5px); /* Elevate on hover */
+}
+
+.repair-request-item h4 {
+  margin: 0; /* Remove margin for headings */
+  color: #007bff; /* Color for user name */
+  font-weight: bold; /* Make the user name text thicker */
+}
+
+.repair-request-item p {
+  margin: 5px 0; /* Margin for paragraphs */
+  font-weight: 500; /* Make the text a bit thicker */
+}
+
+.edit-button {
+  background-color: #007bff; /* Blue color for the edit button */
+  color: white; /* White text color */
+  border: none; /* Remove button border */
+  padding: 8px 16px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  font-weight: bold; /* Make the button text thicker */
+  transition: background-color 0.3s; /* Smooth background color transition */
+  margin-top: 10px; /* Space above the button */
+}
+
+.edit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* Adjust width as needed */
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold; /* Make the button text thicker */
+}
+
+.save-button {
+  background-color: #007bff; /* Blue color for the save button */
+  color: white; /* White text color */
+}
+
+.save-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.cancel-button {
+  background-color: #ccc; /* Gray color for the cancel button */
+  color: #333; /* Dark gray text color */
+}
+
+.cancel-button:hover {
+  background-color: #999; /* Darker gray on hover */
+}
