@@ -3,12 +3,14 @@
 .timeline-container {
   padding: 20px;
   background-color: #f9f9f9;
+  margin-top: 60px; /* Add margin-top to move the entire container down */
 }
 
 .timeline-title {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  margin-top: 20px; /* Add margin-top to move the heading down */
 }
 
 .timeline {
