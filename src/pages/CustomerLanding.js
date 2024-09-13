@@ -109,7 +109,6 @@ const CustomerLanding = () => {
           name="image"
           accept="image/*"
           onChange={handleFileChange}
-          required
         />
 
         <button type="submit" className="submit-button">
