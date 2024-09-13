@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import './CustomerLanding.css'; // Import the CSS file for styling
+import { firestore, storage } from "../firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage"; // Import Firebase Storage functions
 
 const CustomerLanding = () => {
+  const messagesRef = collection(firestore, "messages");
+
   const [repairRequests, setRepairRequests] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
@@ -13,7 +18,7 @@ const CustomerLanding = () => {
     image: null, // New image state
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e) => { //to handle form submission
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -22,11 +27,26 @@ const CustomerLanding = () => {
     setFormData({ ...formData, image: e.target.files[0] }); // Handle file upload
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newRequest = { ...formData, status: 'Pending' };
-    setRepairRequests([...repairRequests, newRequest]);
-    setFormData({ name: '', email: '', device: '', description: '', category: '', image: null }); // Reset form
+
+    try {
+      // Upload image to Firebase Storage if an image is selected
+      if (formData.image) {
+        const imageRef = storageRef(storage, `images/${formData.image.name}`);
+        await uploadBytes(imageRef, formData.image);
+        const imageUrl = await getDownloadURL(imageRef);
+        newRequest.imageUrl = imageUrl; // Add image URL to the request data
+        delete newRequest.image; // Remove the image file from the request data
+      }
+
+      await addDoc(messagesRef, newRequest); // Add document to Firestore
+      setRepairRequests([...repairRequests, newRequest]);
+      setFormData({ name: '', email: '', device: '', description: '', category: '', image: null }); // Reset form
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
 
   return (
@@ -89,6 +109,7 @@ const CustomerLanding = () => {
           name="image"
           accept="image/*"
           onChange={handleFileChange}
+          required
         />
 
         <button type="submit" className="submit-button">
@@ -106,11 +127,11 @@ const CustomerLanding = () => {
               <strong>Device:</strong> {request.device} <br />
               <strong>Status:</strong> {request.status} <br />
               <strong>Description:</strong> {request.description} <br />
-              {request.image && (
-  <div className="image-container">
-    <img src={URL.createObjectURL(request.image)} alt="Uploaded" />
-  </div>
-)}
+              {request.imageUrl && (
+                <div className="image-container">
+                  <img src={request.imageUrl} alt="Uploaded" />
+                </div>
+              )}
             </li>
           ))
         ) : (
