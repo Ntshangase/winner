@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import RepairNavbar from '../Components/RepairNavbar'; // Corrected import
 import './RepairLanding.css'; // Import the CSS file for styling
 import { firestore } from "../firebase";
-import { collection, onSnapshot } from "firebase/firestore"; // Import Firestore functions
+import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore"; // Import Firestore functions
+import Modal from './Modal'; // Import the Modal component
 
 function RepairLanding() {
   const [repairRequests, setRepairRequests] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   useEffect(() => {
     const repairRequestsCollection = collection(firestore, "messages");
@@ -20,10 +23,21 @@ function RepairLanding() {
     return () => unsubscribe();
   }, []);
 
-  const handleEdit = (id) => {
-    // Handle the edit button click event
-    console.log(`Edit request with id: ${id}`);
-    // You can add logic to open a modal or navigate to an edit page
+  const handleEdit = (order) => {
+    setSelectedOrder(order);
+    setIsModalOpen(true);
+  };
+
+  const handleSave = async (id, updatedData) => {
+    const repairDoc = doc(firestore, "messages", id);
+    await updateDoc(repairDoc, updatedData);
+    setIsModalOpen(false);
+    setSelectedOrder(null);
+  };
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+    setSelectedOrder(null);
   };
 
   return (
@@ -39,16 +53,27 @@ function RepairLanding() {
               <span className="tag" style={{ background: getStatusColor(request.status) }}>
                 {request.status}
               </span>
+              {request.quote > 0 && (
+                <p className="quote">Quote: R {request.quote}</p>
+              )}
             </div>
             {request.imageUrl && (
               <div className="image-container">
                 <img src={request.imageUrl} alt={request.device} className="repair-image" />
-                <button className="edit-button" onClick={() => handleEdit(request.id)}>Edit</button>
+                <button className="edit-button" onClick={() => handleEdit(request)}>Edit</button>
               </div>
             )}
           </li>
         ))}
       </ul>
+      {selectedOrder && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleClose}
+          order={selectedOrder}
+          onSave={handleSave}
+        />
+      )}
     </div>
   );
 }
