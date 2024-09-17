@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RepairNavbar from '../Components/RepairNavbar'; // Corrected import
 import './RepairLanding.css'; // Import the CSS file for styling
 import { firestore } from "../firebase";
-import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore"; // Import Firestore functions
+import { collection, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore"; // Import Firestore functions
 import Modal from './Modal'; // Import the Modal component
 
 function RepairLanding() {
@@ -35,6 +35,15 @@ function RepairLanding() {
     setSelectedOrder(null);
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(firestore, "messages", id)); // Delete document from Firestore
+      setRepairRequests(repairRequests.filter(request => request.id !== id)); // Update state
+    } catch (error) {
+      console.error("Error deleting document: ", error);
+    }
+  };
+
   const handleClose = () => {
     setIsModalOpen(false);
     setSelectedOrder(null);
@@ -61,6 +70,7 @@ function RepairLanding() {
               <div className="image-container">
                 <img src={request.imageUrl} alt={request.device} className="repair-image" />
                 <button className="edit-button" onClick={() => handleEdit(request)}>Edit</button>
+                <button className="delete-button" onClick={() => handleDelete(request.id)}>Delete</button>
               </div>
             )}
           </li>
