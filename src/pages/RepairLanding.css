@@ -1,5 +1,5 @@
 .repair-landing-container {
-  padding: 20px;
+  padding-top: 4rem;
   background-color: #f8f9fa;
   min-height: 100vh;
   margin-top: 60px;
@@ -93,4 +93,70 @@
 
 .delete-button:hover {
   background-color: #c82333;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .repair-landing-title {
+    font-size: 1.5rem;
+  }
+
+  .repair-request-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .repair-request-item .content {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .repair-image {
+    max-width: 100%;
+  }
+
+  .edit-button, .delete-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  .repair-landing-title {
+    font-size: 1.75rem;
+  }
+
+  .repair-request-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .repair-request-item .content {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .repair-image {
+    max-width: 100%;
+  }
+
+  .edit-button, .delete-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
 }
