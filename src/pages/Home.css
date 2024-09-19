@@ -30,6 +30,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 .hero-button {
@@ -110,4 +111,51 @@
   background-color: #343a40;
   color: white;
   border-radius: 8px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+  }
+
+  .feature-item {
+    width: 100%;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.3rem;
+  }
+
+  .feature-item {
+    width: 45%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-description {
+    font-size: 1.5rem;
+  }
+
+  .feature-item {
+    width: 30%;
+  }
 }
