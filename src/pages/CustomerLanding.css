@@ -101,3 +101,92 @@
   justify-content: center; /* Center the image */
   margin-top: 10px; /* Space above the image */
 }
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .customer-landing-title {
+    font-size: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.2rem;
+  }
+
+  .repair-request-form {
+    padding: 15px;
+    padding-top: 30px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .status-title {
+    font-size: 1.2rem;
+  }
+
+  .repair-request-item {
+    padding: 8px;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  .customer-landing-title {
+    font-size: 1.75rem;
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+  }
+
+  .repair-request-form {
+    padding: 18px;
+    padding-top: 35px;
+  }
+
+  .submit-button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .status-title {
+    font-size: 1.3rem;
+  }
+
+  .repair-request-item {
+    padding: 9px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .customer-landing-title {
+    font-size: 2rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .repair-request-form {
+    padding: 20px;
+    padding-top: 40px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .status-title {
+    font-size: 1.5rem;
+  }
+
+  .repair-request-item {
+    padding: 10px;
+  }
+}
