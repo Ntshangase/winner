@@ -112,4 +112,52 @@
   border-radius: 8px;
 }
 
-/*test*/
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+  }
+
+  .feature-item {
+    width: 100%;
+  }
+
+  .features-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .features-title {
+    font-size: 1.25rem;
+  }
+
+  .feature-item {
+    padding: 15px;
+  }
+
+  .feature-item h3 {
+    font-size: 1.25rem;
+  }
+
+  .feature-item p {
+    font-size: 0.9rem;
+  }
+}
