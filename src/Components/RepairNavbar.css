@@ -1,37 +1,118 @@
 .navbar {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-  }
-  
-  .navbar-brand a {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 98%;
+  position: fixed; /* Keep it fixed at the top */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-brand a {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex; /* Show nav items by default on larger screens */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 1rem; /* Spacing between items */
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+  color: #ccc; /* Lighter color on hover */
+}
+
+/* Hamburger Styles */
+.navbar-toggle {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff; /* Change color for visibility */
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) { /* Tablets and smaller laptops */
   .navbar-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-item {
-    margin-left: 1rem;
-  }
-  
-  .nav-item a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .nav-item a:hover {
-    color: #ccc;
+    display: none; /* Hide nav items by default on medium screens */
+    flex-direction: column; /* Stack nav items vertically */
+    width: 100%; /* Full width for the dropdown */
+    position: absolute; /* Position below the navbar */
+    top: 60px; /* Adjust based on navbar height */
+    left: 0; /* Align with the left edge of the navbar */
+    background-color: #007bff; /* Match navbar background */
+    padding: 1rem 0; /* Add some padding for spacing */
+    z-index: 999; /* Ensure it appears above other elements */
   }
 
-/*test*/
+  .navbar-nav.open {
+    display: flex; /* Show nav items when open */
+  }
+
+  .navbar-toggle {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .nav-item {
+    margin-left: 0; /* Reset margin for stacked items */
+    margin-bottom: 0.5rem; /* Add spacing between items */
+  }
+}
+
+@media (max-width: 768px) { /* Small phones */
+  .navbar-brand a {
+    font-size: 1.2rem; /* Slightly smaller brand name */
+  }
+
+  .nav-item a {
+    display: none; /* Hide by default */
+  }
+
+  .navbar {
+    padding: 0.5rem; /* Reduced padding for navbar */
+  }
+
+  .navbar-nav.open .nav-item a {
+    display: block; /* Show nav items when toggle is open */
+  }
+}
+
+@media (max-width: 480px) { /* Very small phones */
+  .navbar-brand a {
+    font-size: 1rem; /* Further reduce brand name */
+  }
+
+  .nav-item a {
+    font-size: 0.9rem; /* Smaller font for nav items */
+  }
+  .navbar-nav.open .nav-item a {
+    display: block; /* Show nav items when toggle is open */
+  }
+}
