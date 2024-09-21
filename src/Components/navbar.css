@@ -20,24 +20,14 @@
 }
 
 .navbar-nav {
-  display: none;
+  display: flex; /* Show nav items by default on larger screens */
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.navbar-nav.open {
-  display: none; /* Show nav items when open */
-  flex-direction: column; /* Stack nav items vertically */
-  width: 100%; /* Full width for the navbar */
-  position: absolute; /* Position the dropdown */
-  top: 100%; /* Position below the navbar */
-  left: 0; /* Align with the left edge of the navbar */
-  background-color: #007bff; /* Same background color as navbar */
-}
-
 .nav-item {
-  margin-left: 1rem;
+  margin-left: 1rem; /* Spacing between items */
 }
 
 .nav-item a {
@@ -63,15 +53,23 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #fff; /* Change color to white for better visibility */
+  background-color: #fff; /* Change color for visibility */
   margin: 5px 0;
   transition: 0.3s;
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) { /* Tablets and smaller laptops */
   .navbar-nav {
-    display: none; /* Hide nav items by default on small screens */
+    display: none; /* Hide nav items by default on medium screens */
+    flex-direction: column; /* Stack nav items vertically */
+    width: 100%; /* Full width for the dropdown */
+    position: absolute; /* Position below the navbar */
+    top: 60px; /* Adjust based on navbar height */
+    left: 0; /* Align with the left edge of the navbar */
+    background-color: #007bff; /* Match navbar background */
+    padding: 1rem 0; /* Add some padding for spacing */
+    z-index: 999; /* Ensure it appears above other elements */
   }
 
   .navbar-nav.open {
@@ -84,6 +82,39 @@
 
   .nav-item {
     margin-left: 0; /* Reset margin for stacked items */
-    margin-bottom: 0.5rem; /* Add some spacing between items */
+    margin-bottom: 0.5rem; /* Add spacing between items */
+  }
+}
+
+@media (max-width: 768px) { /* Small phones */
+  .navbar-brand a {
+    font-size: 1.2rem; /* Slightly smaller brand name */
+  }
+
+  .nav-item a {
+    display: none;
+    padding: 0.5rem; /* Smaller padding for nav items */
+  }
+
+  .navbar {
+    padding: 0.5rem; /* Reduced padding for navbar */
+  }
+  .navbar-nav.open .nav-item a {
+    display: block; /* Show nav items when nav toggle is open */
+  }
+}
+
+@media (max-width: 480px) { /* Very small phones */
+  .navbar-brand a {
+    font-size: 1rem; /* Further reduce brand name */
+  }
+
+  .nav-item a {
+    display: none;
+    font-size: 0.9rem; /* Smaller font for nav items */
+  }
+
+  .navbar-nav.open .nav-item a {
+    display: block; /* Show nav items when nav toggle is open */
   }
 }
