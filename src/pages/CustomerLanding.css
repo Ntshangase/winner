@@ -102,4 +102,47 @@
   margin-top: 10px; /* Space above the image */
 }
 
-/*test*/
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .customer-landing-title {
+    font-size: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.25rem;
+  }
+
+  .repair-request-form {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .submit-button {
+    padding: 10px; /* Adjust button padding */
+  }
+
+  .status-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .customer-landing-title {
+    font-size: 1.25rem;
+  }
+
+  .form-title {
+    font-size: 1rem;
+  }
+
+  .repair-request-form {
+    padding: 10px; /* Further reduce padding for small screens */
+  }
+
+  .repair-request-item {
+    padding: 8px; /* Adjust padding */
+  }
+
+  .submit-button {
+    padding: 8px; /* Further adjust button padding */
+  }
+}
