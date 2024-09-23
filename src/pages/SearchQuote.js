@@ -1,7 +1,7 @@
 import React from 'react'
 import RepairNavbar from '../Components/RepairNavbar'
 
-function UpdateQuote() {
+function SearchQuote() {
   return (
     <div>
       <RepairNavbar />
@@ -11,4 +11,4 @@ function UpdateQuote() {
   )
 }
 
-export default UpdateQuote
+export default SearchQuote

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./Home";
 import Timeline from "./Timeline";
-import UpdateQuote from "./UpdateQuote";
+import SearchQuote from "./SearchQuote";
 import RepairLanding from "./RepairLanding";
 import CustomerLanding from "./CustomerLanding";
 import Login from "./Login";
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Timeline" element={<Timeline />} />
-        <Route path="/UpdateQuote" element={<UpdateQuote />} />
+        <Route path="/SearchQuote" element={<SearchQuote />} />
         <Route path="/RepairLanding" element={<RepairLanding />} />
         <Route path="/CustomerLanding" element={<CustomerLanding />} />
         <Route path="/Login" element={<Login />} />
