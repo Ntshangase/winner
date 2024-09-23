@@ -4,6 +4,7 @@ import './CustomerLanding.css'; // Import the CSS file for styling
 import { firestore, storage } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage"; // Import Firebase Storage functions
+import { v4 as uuidv4 } from 'uuid'; // Import uuid for unique ID generation
 
 const CustomerLanding = () => {
   const messagesRef = collection(firestore, "messages");
@@ -18,7 +19,7 @@ const CustomerLanding = () => {
     image: null, // New image state
   });
 
-  const handleChange = (e) => { //to handle form submission
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -29,7 +30,16 @@ const CustomerLanding = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newRequest = { ...formData, status: 'Pending' };
+
+    // Generate a tracking number using a combination of UUID and timestamp
+    const trackingNumber = `TRK-${uuidv4().slice(0, 8)}-${Date.now()}`;
+
+    // Create the new request object with the tracking number
+    const newRequest = { 
+      ...formData, 
+      status: 'Pending', 
+      trackingNumber: trackingNumber // Add tracking number here
+    };
 
     try {
       // Upload image to Firebase Storage if an image is selected
@@ -41,9 +51,13 @@ const CustomerLanding = () => {
         delete newRequest.image; // Remove the image file from the request data
       }
 
-      await addDoc(messagesRef, newRequest); // Add document to Firestore
+      // Add the new request document to Firestore, with the tracking number
+      await addDoc(messagesRef, newRequest);
       setRepairRequests([...repairRequests, newRequest]);
-      setFormData({ name: '', email: '', device: '', description: '', category: '', image: null }); // Reset form
+
+      // Reset form
+      setFormData({ name: '', email: '', device: '', description: '', category: '', image: null });
+
     } catch (error) {
       console.error("Error adding document: ", error);
     }
@@ -126,6 +140,7 @@ const CustomerLanding = () => {
               <strong>Device:</strong> {request.device} <br />
               <strong>Status:</strong> {request.status} <br />
               <strong>Description:</strong> {request.description} <br />
+              <strong>Tracking Number:</strong> {request.trackingNumber} <br />
               {request.imageUrl && (
                 <div className="image-container">
                   <img src={request.imageUrl} alt="Uploaded" />
