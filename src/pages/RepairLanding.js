@@ -59,12 +59,15 @@ function RepairLanding() {
             <div className="content">
               <h3>{request.name}</h3>
               <p>{request.description}</p>
-              <span className="tag" style={{ background: getStatusColor(request.status) }}>
-                {request.status}
-              </span>
+              {request.trackingNumber != null && ( //tracking number
+								<p><strong>Tracking Number:</strong> {request.trackingNumber}</p>
+							)}
               {request.quote > 0 && (
                 <p className="quote">Quote: R {request.quote}</p>
               )}
+              <span className="tag" style={{ background: getStatusColor(request.status) }}>
+                {request.status}
+              </span>
             </div>
             {request.imageUrl && (
               <div className="image-container">
