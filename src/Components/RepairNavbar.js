@@ -24,7 +24,7 @@ export default function RepairNavbar() {
           <Link to="/RepairLanding">Landing Page</Link>
         </li>
         <li className="nav-item">
-          <Link to="/UpdateQuote">Update Order</Link>
+          <Link to="/SearchQuote">Update Order</Link>
         </li>
       </ul>
     </nav>
