@@ -34,6 +34,7 @@ function Home() {
 
       <footer className="home-footer">
         <p>&copy; 2024 Track My Repair. All rights reserved.</p>
+        <p>Mzansi Developers</p>
       </footer>
     </div>
   );
