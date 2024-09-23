@@ -40,6 +40,9 @@ function Timeline() {
 							</span>
 							<h3>{order.name}</h3>
 							<p>{order.description}</p>
+							{order.trackingNumber != null && ( //tracking number
+								<p><strong>Tracking Number:</strong> {order.trackingNumber}</p>
+							)}
 							{order.quote > 0 && (
 								<p className="quote">Quote: R {order.quote}</p>
 							)}
