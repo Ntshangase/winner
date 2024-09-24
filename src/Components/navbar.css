@@ -1,6 +1,7 @@
+/* Updated Navbar CSS with Dark Theme */
 .navbar {
-  background-color: #007bff !important;
-  color: #fff;
+  background-color: var(--navbar-bg-color) !important;
+  color: var(--navbar-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +14,7 @@
 }
 
 .navbar-brand a {
-  color: #fff;
+  color: var(--navbar-text-color);
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
@@ -31,7 +32,7 @@
 }
 
 .nav-item a {
-  color: #fff;
+  color: var(--navbar-text-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -39,7 +40,7 @@
 }
 
 .nav-item a:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-color);
 }
 
 /* Hamburger Styles */
@@ -53,7 +54,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #fff; /* Change color for visibility */
+  background-color: var(--navbar-text-color); /* Adapt color for visibility */
   margin: 5px 0;
   transition: 0.3s;
 }
@@ -67,7 +68,7 @@
     position: absolute; /* Position below the navbar */
     top: 60px; /* Adjust based on navbar height */
     left: 0; /* Align with the left edge of the navbar */
-    background-color: #007bff; /* Match navbar background */
+    background-color: var(--navbar-bg-color); /* Match navbar background */
     padding: 1rem 0; /* Add some padding for spacing */
     z-index: 999; /* Ensure it appears above other elements */
   }
@@ -99,6 +100,7 @@
   .navbar {
     padding: 0.5rem; /* Reduced padding for navbar */
   }
+  
   .navbar-nav.open .nav-item a {
     display: block; /* Show nav items when nav toggle is open */
   }

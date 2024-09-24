@@ -1,6 +1,6 @@
 .customer-landing-container {
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   min-height: 100vh;
   margin-top: 60px;
 }
@@ -9,13 +9,13 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #343a40;
+  color: var(--text-color);
 }
 
 .form-title {
   margin-top: 20px;
   font-size: 1.5rem;
-  color: #343a40;
+  color: var(--text-color);
   text-align: center; /* Center the form title */
 }
 
@@ -25,7 +25,7 @@
   width: 100%; /* Full width */
   max-width: 800px; /* Increased max width for larger screens */
   margin: 20px auto; /* Center the form on larger screens with top margin */
-  background: #ffffff;
+  background: var(--form-bg-color);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -37,10 +37,12 @@
 .repair-request-form select { /* Added select for dropdown */
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border-color);
   border-radius: 5px;
   width: 100%; /* Full width for inputs, textarea, and select */
   box-sizing: border-box; /* Include padding and border in width */
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
 }
 
 .repair-request-form textarea {
@@ -54,8 +56,8 @@
 .submit-button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -64,13 +66,13 @@
 }
 
 .submit-button:hover {
-  background-color: #1d4167;
+  background-color: var(--button-hover-color);
 }
 
 .status-title {
   margin-top: 30px;
   font-size: 1.5rem;
-  color: #343a40;
+  color: var(--text-color);
 }
 
 .repair-requests-list {
@@ -81,10 +83,10 @@
 
 .repair-request-item {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border-color);
   border-radius: 5px;
   margin: 10px 0;
-  background-color: #ffffff;
+  background-color: var(--form-bg-color);
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Arrange items vertically */
 }
