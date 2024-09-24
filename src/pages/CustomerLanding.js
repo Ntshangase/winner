@@ -36,8 +36,8 @@ const CustomerLanding = () => {
 
     // Create the new request object with the tracking number
     const newRequest = { 
-      ...formData, 
-      status: 'Pending', 
+      ...formData,
+      status: 'Pending',
       trackingNumber: trackingNumber // Add tracking number here
     };
 
@@ -86,7 +86,7 @@ const CustomerLanding = () => {
           onChange={handleChange}
           required
         />
-        
+
         {/* Category Dropdown */}
         <select
           name="category"

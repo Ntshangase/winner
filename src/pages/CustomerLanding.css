@@ -43,12 +43,19 @@
   width: 100%; /* Full width for inputs, textarea, and select */
   box-sizing: border-box; /* Include padding and border in width */
   background-color: var(--input-bg-color);
-  color: var(--input-text-color);
+  color: white;
 }
 
 .repair-request-form textarea {
   resize: vertical; /* Allow vertical resizing */
 }
+
+ /* Style for placeholder text */
+ input::placeholder,
+ textarea::placeholder,
+ select::placeholder {
+   color: white; /* Change this to your desired color */
+ }
 
 .repair-request-form input[type="file"] { /* Styles for file input */
   margin: 10px 0;
