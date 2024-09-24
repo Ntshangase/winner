@@ -13,7 +13,8 @@
 }
 
 .modal-content {
-  background: var(--background-color);
+  background-image: url('../images/mzandiLogo.jpeg');
+  background-size: cover;
   padding: 20px;
   border-radius: 8px;
   width: 400px;

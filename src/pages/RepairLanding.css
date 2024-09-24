@@ -2,7 +2,8 @@
 
 .repair-landing-container {
   padding: 20px;
-  background-color: var(--background-color);
+  background-image: url('../images/mzandiLogo.jpeg');
+  background-size: cover;
   min-height: 100vh;
   margin-top: 60px;
 }
