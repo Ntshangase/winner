@@ -1,7 +1,9 @@
+/* Home.css */
+
 .home-container {
   text-align: center;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,8 +11,8 @@
 }
 
 .hero-section {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-text-color);
   padding: 60px 20px;
   border-radius: 8px;
   margin-bottom: 40px;
@@ -40,7 +42,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
   text-decoration: none;
-  color: white;
+  color: var(--navbar-text-color);
 }
 
 .primary-button {
@@ -61,7 +63,7 @@
 
 .features-section {
   padding: 40px 20px;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   border-radius: 8px;
   margin-bottom: 40px;
 }
@@ -69,7 +71,7 @@
 .features-title {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #343a40;
+  color: var(--text-color);
 }
 
 .features-container {
@@ -80,7 +82,7 @@
 }
 
 .feature-item {
-  background-color: #f1f1f1;
+  background-color: var(--background-color);
   padding: 20px;
   border-radius: 8px;
   width: 30%;
@@ -102,13 +104,13 @@
 
 .feature-item p {
   font-size: 1rem;
-  color: #555;
+  color: var(--text-color);
 }
 
 .home-footer {
   padding: 20px;
   background-color: #343a40;
-  color: white;
+  color: var(--navbar-text-color);
   border-radius: 8px;
 }
 
