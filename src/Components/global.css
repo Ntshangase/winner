@@ -8,6 +8,7 @@
   --button-hover-color: #0056b3;
   --button-delete-bg-color: #dc3545;
   --button-delete-hover-color: #bd2130;
+  --form-input-color: black;
 }
 
 [data-theme='dark'] {
@@ -19,4 +20,5 @@
   --button-hover-color: #16087e;
   --button-delete-bg-color: #444;
   --button-delete-hover-color: #bd2130;
+  --form-input-color: #ffffff;
 }

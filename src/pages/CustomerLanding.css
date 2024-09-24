@@ -23,14 +23,15 @@
 .repair-request-form {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Full width */
-  max-width: 800px; /* Increased max width for larger screens */
-  margin: 20px auto; /* Center the form on larger screens with top margin */
-  background: var(--form-bg-color);
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: var(--background-color);
+  opacity: 0.6;  /*attention opacity*/
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  padding-top: 40px; /* Increased top padding to separate from navbar */
+  padding-top: 40px;
 }
 
 .repair-request-form input,
@@ -43,7 +44,7 @@
   width: 100%; /* Full width for inputs, textarea, and select */
   box-sizing: border-box; /* Include padding and border in width */
   background-color: var(--input-bg-color);
-  color: white;
+  color: var(--form-input-color);
 }
 
 .repair-request-form textarea {
@@ -54,7 +55,7 @@
  input::placeholder,
  textarea::placeholder,
  select::placeholder {
-   color: white; /* Change this to your desired color */
+   color: var(--form-input-color); /* Change this to your desired color */
  }
 
 .repair-request-form input[type="file"] { /* Styles for file input */
