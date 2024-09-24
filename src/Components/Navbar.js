@@ -40,7 +40,11 @@ export default function Navbar() {
       </ul>
       {/* Theme Toggle Button */}
       <button className="theme-toggle" onClick={toggleTheme}>
-        {theme === 'light' ? 'Dark' : 'Light'} Mode
+        {theme === 'light' ? (
+          <i className="fas fa-moon"></i>
+        ) : (
+          <i className="fas fa-sun"></i>
+        )}
       </button>
     </nav>
   );
