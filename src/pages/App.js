@@ -7,6 +7,7 @@ import CustomerLanding from "./CustomerLanding";
 import Login from "./Login";
 import Register from "./Register";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import "../Components/global.css";
 
 
 function App() {
