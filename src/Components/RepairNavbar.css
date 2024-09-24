@@ -1,4 +1,4 @@
-/* navbar.css */
+/* RepairNavbar.css */
 
 .navbar {
   background-color: var(--navbar-bg-color);
@@ -58,6 +58,16 @@
   background-color: var(--navbar-text-color); /* Change color for visibility */
   margin: 5px 0;
   transition: 0.3s;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--navbar-text-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
 }
 
 /* Responsive Styles */
