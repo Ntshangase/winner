@@ -1,81 +1,85 @@
+/* SearchQuote.css */
+
 .search-quote-container {
-    padding: 20px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+  padding: 20px;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-quote-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.search-quote-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  margin-bottom: 15px;
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.search-quote-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--button-bg-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-quote-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.order-details-container {
+  background-color: var(--background-color);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.order-details-container h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.order-details-container p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.error-message {
+  margin-top: 20px;
+  color: #dc3545;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
   .search-quote-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #343a40;
-    font-weight: bold;
-  }
-  
-  .search-quote-input {
-    padding: 10px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-    margin-bottom: 15px;
-    font-size: 16px;
-  }
-  
-  .search-quote-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .search-quote-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .order-details-container {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-  }
-  
-  .order-details-container h2 {
-    margin-bottom: 15px;
     font-size: 1.5rem;
-    color: #343a40;
   }
 
-  .order-details-container p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
+  .order-details-container {
+    padding: 15px;
   }
-  
-  .error-message {
-    margin-top: 20px;
-    color: #dc3545;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  @media (max-width: 768px) {
-    .search-quote-title {
-      font-size: 1.5rem;
-    }
-  
-    .order-details-container {
-      padding: 15px;
-    }
-  }
+}
