@@ -1,3 +1,5 @@
+/* Modal.css */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -11,7 +13,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: var(--background-color);
   padding: 20px;
   border-radius: 8px;
   width: 400px;
@@ -21,11 +23,13 @@
 
 .modal-content h2 {
   margin-top: 0;
+  color: var(--text-color);
 }
 
 .modal-content label {
   display: block;
   margin-bottom: 10px;
+  color: var(--text-color);
 }
 
 .modal-content .modal-input,
@@ -36,6 +40,8 @@
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .modal-content .modal-textarea {
@@ -51,7 +57,7 @@
 .modal-button {
   padding: 10px 20px;
   font-size: 14px;
-  background-color: #007bff;
+  background-color: var(--button-bg-color);
   color: white;
   border: none;
   border-radius: 5px;
@@ -61,11 +67,11 @@
 }
 
 .modal-button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-color);
 }
 
 .save-button {
-  background-color: #28a745;
+  background-color: var(--button-bg-color);
 }
 
 .save-button:hover {
@@ -73,9 +79,9 @@
 }
 
 .close-button {
-  background-color: #dc3545;
+  background-color: var(--button-delete-bg-color);
 }
 
 .close-button:hover {
-  background-color: #c82333;
+  background-color: var(--button-delete-hover-color);
 }
