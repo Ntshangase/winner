@@ -94,9 +94,11 @@
   border: 1px solid var(--input-border-color);
   border-radius: 5px;
   margin: 10px 0;
-  background-color: var(--form-bg-color);
+  background: var(--background-color);
+  opacity: 0.6;
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Arrange items vertically */
+  color: var(--form-input-color);
 }
 
 .repair-request-item img { /* Styles for uploaded image */
