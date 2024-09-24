@@ -39,7 +39,6 @@
 .repair-request-form select { /* Added select for dropdown */
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid var(--input-border-color);
   border-radius: 5px;
   width: 100%; /* Full width for inputs, textarea, and select */
   box-sizing: border-box; /* Include padding and border in width */
