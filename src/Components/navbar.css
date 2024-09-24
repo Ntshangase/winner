@@ -1,13 +1,14 @@
-/* Updated Navbar CSS with Dark Theme */
+/* navbar.css */
+
 .navbar {
-  background-color: var(--navbar-bg-color) !important;
+  background-color: var(--navbar-bg-color);
   color: var(--navbar-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   width: 98%;
-  position: fixed;
+  position: fixed; /* Keep it fixed at the top */
   top: 0;
   left: 0;
   z-index: 1000;
@@ -40,7 +41,7 @@
 }
 
 .nav-item a:hover {
-  background-color: var(--button-hover-color);
+  color: #ccc; /* Lighter color on hover */
 }
 
 /* Hamburger Styles */
@@ -54,9 +55,19 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: var(--navbar-text-color); /* Adapt color for visibility */
+  background-color: var(--navbar-text-color); /* Change color for visibility */
   margin: 5px 0;
   transition: 0.3s;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--navbar-text-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
 }
 
 /* Responsive Styles */
@@ -93,16 +104,15 @@
   }
 
   .nav-item a {
-    display: none;
-    padding: 0.5rem; /* Smaller padding for nav items */
+    display: none; /* Hide by default */
   }
 
   .navbar {
     padding: 0.5rem; /* Reduced padding for navbar */
   }
-  
+
   .navbar-nav.open .nav-item a {
-    display: block; /* Show nav items when nav toggle is open */
+    display: block; /* Show nav items when toggle is open */
   }
 }
 
@@ -112,11 +122,9 @@
   }
 
   .nav-item a {
-    display: none;
     font-size: 0.9rem; /* Smaller font for nav items */
   }
-
   .navbar-nav.open .nav-item a {
-    display: block; /* Show nav items when nav toggle is open */
+    display: block; /* Show nav items when toggle is open */
   }
 }
