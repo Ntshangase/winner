@@ -3,7 +3,8 @@
 .home-container {
   text-align: center;
   padding: 20px;
-  background-color: var(--background-color);
+  background-image: url('../images/mzandiLogo.jpeg');
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,6 @@
 }
 
 .hero-section {
-  background-color: var(--navbar-bg-color);
   color: var(--navbar-text-color);
   padding: 60px 20px;
   border-radius: 8px;
@@ -63,7 +63,6 @@
 
 .features-section {
   padding: 40px 20px;
-  background-color: var(--background-color);
   border-radius: 8px;
   margin-bottom: 40px;
 }
@@ -83,6 +82,7 @@
 
 .feature-item {
   background-color: var(--background-color);
+  opacity: 0.5;
   padding: 20px;
   border-radius: 8px;
   width: 30%;
@@ -110,8 +110,8 @@
 .home-footer {
   padding: 20px;
   background-color: #343a40;
-  color: var(--navbar-text-color);
   border-radius: 8px;
+  opacity: 0.8;
 }
 
 /* Responsive Styles */
