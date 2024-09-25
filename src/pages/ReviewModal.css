@@ -1,0 +1,37 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .star-rating span {
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .filled-star {
+    color: gold;
+  }
+  
+  .empty-star {
+    color: lightgray;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 5px 10px;
+  }

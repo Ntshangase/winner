@@ -72,3 +72,12 @@
   top: 20px;
   left: -30px;
 }
+
+.stars {
+  font-size: 20px;
+  color: gold;
+}
+
+.review-section {
+  margin-top: 10px;
+}
