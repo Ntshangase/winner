@@ -114,6 +114,7 @@
   background-color: #343a40;
   border-radius: 8px;
   opacity: 0.8;
+  color: var(--form-input-color);
 }
 
 /* Responsive Styles */
