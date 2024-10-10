@@ -8,6 +8,7 @@ import Login from "./Login";
 import Register from "./Register";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../Components/global.css";
+import { Testing } from "./Testing";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
 				<Route path="/CustomerLanding" element={<CustomerLanding />} />
 				<Route path="/Login" element={<Login />} />
 				<Route path="/Register" element={<Register />} />
+				<Route path="/Testing" element={<Testing />} />
 			</Routes>
 		</Router>
 	);
