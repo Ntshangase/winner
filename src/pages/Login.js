@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // For navigation after login
+import { useNavigate } from "react-router-dom"; // For navigation after login
 import './Login.css'; // Import CSS for styling
 
 function Login() {
@@ -37,9 +37,9 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      <p className="register-link">
+      {/* <p className="register-link">
         Don't have an account? <Link to="/Register">Register hre</Link>
-      </p>
+      </p> */}
     </div>
   );
 };
